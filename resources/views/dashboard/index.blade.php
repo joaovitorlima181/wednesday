@@ -7,7 +7,7 @@ Séries
 @section('conteudo')
 
 @auth
-<a href="#" class="btn btn-dark mb-2">Adicionar</a>
+<a href="/debts/create" class="btn btn-dark mb-2">Adicionar</a>
 @endauth
 
 <ul class="list-group">

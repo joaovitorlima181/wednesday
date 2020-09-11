@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DebtController;
+use App\Http\Controllers\DebtsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Debt;
@@ -31,7 +31,8 @@ Route::post('/registrar', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::get('/debts/create', [DebtController::class, 'create']);
+Route::get('/debts/create', [DebtsController::class, 'create']);
+Route::post('/debts/create', [DebtsController::class, 'store']);
 
 Route::get('/logout', function(){
     Auth::logout();

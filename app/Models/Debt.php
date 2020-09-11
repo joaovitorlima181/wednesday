@@ -9,6 +9,8 @@ class Debt extends Model
 {
     use HasFactory;
 
+    protected $fillable =['name', 'date', 'value', 'user_id'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
