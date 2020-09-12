@@ -19,8 +19,8 @@ class CreateDebtsTable extends Migration
             $table->date('date');
             $table->decimal('value', 8, 2);
             $table->timestamps();
-            $table->integer('user_id');
 
+            $table->integer('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
