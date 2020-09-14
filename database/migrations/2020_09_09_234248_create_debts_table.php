@@ -15,15 +15,15 @@ class CreateDebtsTable extends Migration
     {
         Schema::create('debts', function (Blueprint $table) {
             $table->id();
+            $table->string('cod');
             $table->string('name');
             $table->date('date');
-            $table->decimal('value', 8, 2);
+            $table->decimal('total_value', 8, 2);
+            $table->decimal('single_value', 8, 2);
             $table->timestamps();
 
-            $table->integer('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
+            $table->foreignId('creator_id')->constrained('users');
+            $table->foreignId('debtor_id')->constrained('users');
            
         });
     }

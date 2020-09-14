@@ -25,20 +25,14 @@
         </div>
     </div>
 
-    {{-- <div class="mt-2">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="debtUsers[]" value="Tobias">
-            <label class="form-check-label">Tobias</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="debtUsers[]" value="Lucas">
-            <label class="form-check-label">Lucas</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="debtUsers[]" value="KLB">
-            <label class="form-check-label">KLB</label>
-          </div>
-    </div> --}}
+    <div class="mt-2">
+        @foreach ($users as $user)
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="debtUsers[]" value="{{ $user->id }}">
+                <label class="form-check-label"> {{ $user->name }} </label>
+            </div>
+        @endforeach
+    </div>
 
       <div> <button class="btn btn-primary mt-2">Adicionar</button></div>
    
