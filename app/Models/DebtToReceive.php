@@ -5,14 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Debt extends Model
+class DebtToReceive extends Model
 {
     use HasFactory;
 
-    protected $fillable =['cod', 'name', 'date', 'total_value', 'single_value','creator_id', 'debtor_id'];
+    protected $table = 'debts_to_receive';
+    protected $fillable = ['name', 'date', 'value', 'creator_id'];
 
     public function user()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function debtToPay()
+    {
+        return $this->hasMany(DebtToPay::class);
     }
 }

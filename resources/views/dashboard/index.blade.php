@@ -10,7 +10,7 @@ Dashboard
 <a href="/debts/create" class="btn btn-dark mb-2">Adicionar</a>
 @endauth
 
-<ul class="list-group">
+{{-- <ul class="list-group">
     @foreach ($debts as $debt)
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <span id="debtName-{{ $debt->id }}">{{ $debt->name }}</span>
@@ -80,5 +80,5 @@ Dashboard
             document.getElementById(`name-debt-${debtId}`).textContent = name;
         });
     }
-</script>
+</script> --}}
 @endsection
