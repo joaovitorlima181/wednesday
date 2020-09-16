@@ -18,6 +18,7 @@ class CreateDebtsToPayTable extends Migration
             $table->decimal('value', 8, 2);
             $table->timestamps();
 
+            $table->foreignId('creator_id')->constrained('users');
             $table->foreignId('debtor_id')->constrained('users');
             $table->foreignId('debt_id')->constrained('debts_to_receive');
         });;

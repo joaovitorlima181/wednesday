@@ -10,7 +10,7 @@ class DebtToPay extends Model
     use HasFactory;
 
     protected $table = 'debts_to_pay';
-    protected $fillable = ['value', 'debtor_id', 'debt_id'];
+    protected $fillable = ['value', 'debtor_id', 'debt_id', 'creator_id'];
 
     public function user()
     {

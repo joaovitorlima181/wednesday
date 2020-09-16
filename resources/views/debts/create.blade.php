@@ -10,8 +10,8 @@
     @csrf
     <div class="row">
         <div class="col col-7">
-            <label for="nome">Nome:</label>
-            <input type="text" class="form-control" name="debtName" id="debtName">
+            <label for="nome">Titulo:</label>
+            <input type="text" class="form-control" name="debtTitle" id="debtTitle">
         </div>
 
         <div class="col col-3">

@@ -16,7 +16,7 @@ class CreateDebtsToReceiveTable extends Migration
 
         Schema::create('debts_to_receive', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->date('date');
             $table->decimal('value', 8, 2);
             $table->timestamps();

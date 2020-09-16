@@ -10,7 +10,7 @@ class DebtToReceive extends Model
     use HasFactory;
 
     protected $table = 'debts_to_receive';
-    protected $fillable = ['name', 'date', 'value', 'creator_id'];
+    protected $fillable = ['title', 'date', 'value', 'creator_id'];
 
     public function user()
     {
