@@ -22,7 +22,6 @@ class DebtsController extends Controller
 
     public function store(Request $request)
     {
-
         $userId = Auth::id();
 
         $debtsUsersId = $request->debtUsers;
@@ -49,5 +48,23 @@ class DebtsController extends Controller
         DB::commit();
 
         return redirect('/dashboard');
+    }
+
+    public function delete(Request $request)
+    {
+
+        $debtId = $request->id;
+        // $debtToReceive = DebtToReceive::find($request->id);
+        // $debtToReceive->debtToPay->each(function (DebtToPay $debtToPay){
+        //     $debtToPay->delete();
+        // });
+
+        DB::transaction(function() use ($debtId){
+            DebtToPay::where('debt_id', $debtId)->delete();
+            DebtToReceive::destroy($debtId);
+        });
+
+
+        return redirect()->back();
     }
 }

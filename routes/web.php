@@ -33,6 +33,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 
 Route::get('/debts/create', [DebtsController::class, 'create']);
 Route::post('/debts/create', [DebtsController::class, 'store']);
+Route::delete('/debts/delete/{id}', [DebtsController::class, 'delete']);
 
 Route::get('/logout', function(){
     Auth::logout();

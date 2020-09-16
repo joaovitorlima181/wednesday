@@ -36,7 +36,7 @@ Dashboard
                     <i class="fas fa-external-link-alt"></i>
                 </a>
                 @auth
-                <form method="post" action="/debts/{{ $debtToReceive->id }}"
+                <form method="post" action="/debts/delete/{{ $debtToReceive->id }}"
                     onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($debtToReceive->title) }}?')">
                     @csrf
                     @method('DELETE')
