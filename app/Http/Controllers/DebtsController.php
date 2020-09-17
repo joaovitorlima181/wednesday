@@ -63,4 +63,17 @@ class DebtsController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit(int $id, Request $request)
+    {
+        $newTitle = $request->title;
+        $newDate = $request->date;
+        $newValue = $request->value;
+
+        $debt = DebtToReceive::find($id);
+        $debt->title = $newTitle;
+        $debt->date = $newDate;
+        $debt->value = $newValue;
+        $debt->save();
+    }
 }
