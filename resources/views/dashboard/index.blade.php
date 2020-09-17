@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 @section('cabecalho')
@@ -57,6 +58,7 @@ Dashboard
         @foreach ($debtsToPay as $debtToPay)
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <span id="debtName-{{ $debtToPay->id }}">Para {{$debtToPay->name}}: {{ $debtToPay->title }}</span>
+        <span>{{ date('d/m/Y', strtotime($debtToPay->date)) }}</span>
             <span>R${{$debtToPay->value}}</span>
         </li>
         @endforeach

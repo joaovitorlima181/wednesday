@@ -54,10 +54,6 @@ class DebtsController extends Controller
     {
 
         $debtId = $request->id;
-        // $debtToReceive = DebtToReceive::find($request->id);
-        // $debtToReceive->debtToPay->each(function (DebtToPay $debtToPay){
-        //     $debtToPay->delete();
-        // });
 
         DB::transaction(function() use ($debtId){
             DebtToPay::where('debt_id', $debtId)->delete();
