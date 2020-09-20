@@ -31,10 +31,10 @@ Route::post('/registrar', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::get('/debts/create', [DebtsController::class, 'create']);
-Route::post('/debts/create', [DebtsController::class, 'store']);
-Route::delete('/debts/delete/{id}', [DebtsController::class, 'delete']);
-Route::post('/debts/edit/{id}', [DebtsController:: class, 'edit']);
+Route::get('/debts/create', [DebtsController::class, 'create'])->middleware('auth');;
+Route::post('/debts/create', [DebtsController::class, 'store'])->middleware('auth');;
+Route::delete('/debts/delete/{id}', [DebtsController::class, 'delete'])->middleware('auth');;
+Route::post('/debts/edit/{id}', [DebtsController:: class, 'edit'])->middleware('auth');;
 
 Route::get('/logout', function(){
     Auth::logout();

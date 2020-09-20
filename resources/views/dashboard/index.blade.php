@@ -1,4 +1,3 @@
-
 @extends('layout')
 
 @section('cabecalho')
@@ -15,9 +14,10 @@ Dashboard
         <a href="/debts/create" class="btn btn-dark mb-2">Adicionar</a>
         @foreach ($debtsToReceive as $debtToReceive)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span id="debtTitle-{{ $debtToReceive->id }}">{{ $debtToReceive->title }}</span>
-        <span id='debtDate-{{$debtToReceive->id}}'>{{$debtToReceive->date}}</span>
-        <span id="debtValue-{{$debtToReceive->id}}">Total: R${{ $debtToReceive->value }}</span>
+            <span id="debtTitle-{{ $debtToReceive->id }}">{{ $debtToReceive->title }}</span>
+            <span id='debtDate-{{$debtToReceive->id}}'>{{$debtToReceive->date}}</span>
+            <span id="debtValue-{{$debtToReceive->id}}">Total: R${{ $debtToReceive->value }}</span>
+
 
             <div class="input-group w-50" hidden id="input-debt-title-{{ $debtToReceive->id }}">
                 <input type="text" class="form-control" value="{{ $debtToReceive->title }}">
@@ -50,15 +50,9 @@ Dashboard
             </div>
 
             <span class="d-flex">
-                @auth
                 <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{$debtToReceive->id}})">
                     <i class="fas fa-edit"></i>
                 </button>
-                @endauth
-                <a href="/debts/{{ $debtToReceive->id }}/temporadas" class="btn btn-info btn-sm mr-1">
-                    <i class="fas fa-external-link-alt"></i>
-                </a>
-                @auth
                 <form method="post" action="/debts/delete/{{ $debtToReceive->id }}"
                     onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($debtToReceive->title) }}?')">
                     @csrf
@@ -67,9 +61,9 @@ Dashboard
                         <i class="far fa-trash-alt"></i>
                     </button>
                 </form>
-                @endauth
             </span>
         </li>
+ 
         @endforeach
     </ul>
 </div>
@@ -80,7 +74,7 @@ Dashboard
         @foreach ($debtsToPay as $debtToPay)
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <span id="debtTitle-{{ $debtToPay->id }}">Para {{$debtToPay->Title}}: {{ $debtToPay->title }}</span>
-        <span>{{ date('d/m/Y', strtotime($debtToPay->date)) }}</span>
+            <span>{{ date('d/m/Y', strtotime($debtToPay->date)) }}</span>
             <span>R${{$debtToPay->value}}</span>
         </li>
         @endforeach
