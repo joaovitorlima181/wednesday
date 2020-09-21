@@ -65,12 +65,25 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+
+            'url' => env('DATABASE_URL', 'postgres://wokfdgmszgizhb:a7efa2754a9138b0a322f2c6fdf636b9cb60fa43cf2649d0fc426ca4d46ee352@ec2-54-172-173-58.compute-1.amazonaws.com:5432/d4dfoau8unn7cc
+            '),
+            // 'url' => env('DATABASE_URL'),
+
+            'host' => env('DB_HOST', 'ec2-54-172-173-58.compute-1.amazonaws.com'),
+            // 'host' => env('DB_HOST', '127.0.0.1'),
+
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+
+            'database' => env('DB_DATABASE', 'd4dfoau8unn7cc'),
+            // 'database' => env('DB_DATABASE', 'forge'),
+
+            'username' => env('DB_USERNAME', 'wokfdgmszgizhb'),
+            // 'username' => env('DB_USERNAME', 'forge'),
+
+            'password' => env('DB_PASSWORD', 'a7efa2754a9138b0a322f2c6fdf636b9cb60fa43cf2649d0fc426ca4d46ee352'),
+            // 'password' => env('DB_PASSWORD', ''),
+
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
