@@ -15,7 +15,7 @@ Dashboard
         @foreach ($debtsToReceive as $debtToReceive)
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <span id="debtTitle-{{ $debtToReceive->id }}">{{ $debtToReceive->title }}</span>
-            <span id='debtDate-{{$debtToReceive->id}}'>{{$debtToReceive->date}}</span>
+            <span id='debtDate-{{$debtToReceive->id}}'>{{ date('d/m/Y', strtotime($debtToReceive->date)) }}</span>
             <span id="debtValue-{{$debtToReceive->id}}">Total: R${{ $debtToReceive->value }}</span>
 
 
@@ -73,7 +73,7 @@ Dashboard
     <ul class="list-group">
         @foreach ($debtsToPay as $debtToPay)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span id="debtTitle-{{ $debtToPay->id }}">Para {{$debtToPay->Title}}: {{ $debtToPay->title }}</span>
+            <span id="debtTitle-{{ $debtToPay->id }}">Para {{$debtToPay->name}}: {{ $debtToPay->title }}</span>
             <span>{{ date('d/m/Y', strtotime($debtToPay->date)) }}</span>
             <span>R${{$debtToPay->value}}</span>
         </li>
