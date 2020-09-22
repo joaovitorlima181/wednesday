@@ -73,7 +73,7 @@ Dashboard
     <ul class="list-group">
         @foreach ($debtsToPay as $debtToPay)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span id="debtTitle-{{ $debtToPay->id }}">Para {{$debtToPay->name}}: {{ $debtToPay->title }}</span>
+            <span id="debtTitle-{{ $debtToPay->id }}"><span class="font-weight-bold">{{$debtToPay->name}}:</span> {{ $debtToPay->title }}</span>
             <span>{{ date('d/m/Y', strtotime($debtToPay->date)) }}</span>
             <span>R${{$debtToPay->value}}</span>
         </li>
