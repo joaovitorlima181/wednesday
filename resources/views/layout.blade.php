@@ -12,7 +12,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light mb-2 d-flex justify-content-between" style="background-color: #e9ecef;">
         <a class="navbar-brand" href="/">Home</a>
+
         @auth
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/suggestion">Sugestões</a>
+            </li>
+        </ul>
         <a href="/logout" class="text-danger">Sair</a>
         @endauth
 

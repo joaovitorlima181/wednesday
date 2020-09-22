@@ -38,8 +38,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function debts()
+    public function debtsToReceive()
     {
-        return $this->hasMany(Debt::class);
+        return $this->hasMany(DebtToReceive::class);
+    }
+
+    public function debtsToPay()
+    {
+        return $this->hasMany(DebtToPay::class);
+    }
+
+    public function suggestion()
+    {
+        return $this->hasMany(Suggestion::class);
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebtsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SuggestionController;
 use App\Models\Debt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +32,15 @@ Route::post('/registrar', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::get('/debts/create', [DebtsController::class, 'create'])->middleware('auth');;
-Route::post('/debts/create', [DebtsController::class, 'store'])->middleware('auth');;
-Route::delete('/debts/delete/{id}', [DebtsController::class, 'delete'])->middleware('auth');;
-Route::post('/debts/edit/{id}', [DebtsController:: class, 'edit'])->middleware('auth');;
+Route::get('/debts/create', [DebtsController::class, 'create'])->middleware('auth');
+Route::post('/debts/create', [DebtsController::class, 'store'])->middleware('auth');
+Route::post('/debts/edit/{id}', [DebtsController:: class, 'edit'])->middleware('auth');
+Route::delete('/debts/delete/{id}', [DebtsController::class, 'delete'])->middleware('auth');
+
+Route::get('/suggestion', [SuggestionController::class, 'index'])->middleware('auth');
+Route::get('/suggestion/create', [SuggestionController::class, 'create'])->middleware('auth');
+Route::post('/suggestion/create', [SuggestionController::class, 'store'])->middleware('auth');
+Route::delete('/suggestion/delete/{id}', [SuggestionController::class, 'delete'])->middleware('auth');
 
 Route::get('/logout', function(){
     Auth::logout();
