@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Klb extends Migration
+class Updates extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,13 @@ class Klb extends Migration
      */
     public function up()
     {
-        User::where('id', 2)->update(['name' => 'KLB']);
+        Schema::table('suggestions', function (Blueprint $table) {
+            $table->string('description_sug')->mediumText()->change();
+        });
+
+        DB::table('users')
+              ->where('id', 2)
+              ->update(['name' => 'KLB']);
     }
 
     /**
@@ -24,6 +29,6 @@ class Klb extends Migration
      */
     public function down()
     {
-        //
+       
     }
 }
