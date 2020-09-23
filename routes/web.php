@@ -3,7 +3,9 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebtsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SuggestionController;
 use App\Models\Debt;
 use Illuminate\Support\Facades\Auth;
@@ -24,11 +26,14 @@ Route::get('/', function(){
     return redirect('/dashboard');
 });
 
+Route::get('/registrar', [RegisterController::class, 'create']);
+Route::post('/registrar', [RegisterController::class, 'store']);
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login',[LoginController::class, 'login']);
 
-Route::get('/registrar', [RegisterController::class, 'create']);
-Route::post('/registrar', [RegisterController::class, 'store']);
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::post('/profile/reset-password', [ProfileController::class, 'resetPassword'])->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
@@ -41,6 +46,12 @@ Route::get('/suggestion', [SuggestionController::class, 'index'])->middleware('a
 Route::get('/suggestion/create', [SuggestionController::class, 'create'])->middleware('auth');
 Route::post('/suggestion/create', [SuggestionController::class, 'store'])->middleware('auth');
 Route::delete('/suggestion/delete/{id}', [SuggestionController::class, 'delete'])->middleware('auth');
+
+Route::get('/forgot-password', [ResetPasswordController::class, 'index'])->middleware(['guest'])->name('password.request');
+Route::post('/forgot-password', [ResetPasswordController::class, 'send'])->middleware(['guest'])->name('password.email');
+
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'reset'])->middleware(['guest'])->name('password.reset');;
+Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware(['guest'])->name('password.update');;
 
 Route::get('/logout', function(){
     Auth::logout();
