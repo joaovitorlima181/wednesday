@@ -18,7 +18,7 @@
         <div class="form-group">
             <label for="password">Senha</label>
             <input type="password" name="password" id="password" required min="1" class="form-control">
-            <a href="/forgot-password">Esqueci a senha</a>
+            <a href="/forgot-password">Esqueci a</a>
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">
