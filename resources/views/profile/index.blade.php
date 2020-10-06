@@ -6,7 +6,7 @@
 
 @section('conteudo')
 
-<form action="/profile/reset-password" method="post" oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? "Senhas não conferem" : "")'>>
+<form action="/profile/reset-password/" method="post" oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? "Senhas não conferem" : "")'>
     @csrf
     <div class="form-group">
         <label for="oldPassword">Senha atual:</label>
