@@ -1,1 +1,84 @@
 
+*{
+	margin:0;
+	padding: 0;
+}
+
+body{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #FF0000 url(../imagens/cerveja4.jpg) no-repeat top center;
+}
+
+#container{
+
+width: 400px;
+height: 300px;
+background-color:#708090;
+border-radius: 10px;
+margin: 0 auto;
+margin-top: 120px;
+text-align: center;
+
+}
+#container img {
+	width: 120px;
+	height: 120px;
+	margin-top: -60px;
+	margin-bottom: 15px;
+
+}
+
+input{
+height: 40px;
+width:80%;
+font-size: 16px;
+margin-bottom:6px;
+background-color: #fff;
+padding-left: 120px;
+border: none;
+background-repeat: no-repeat;
+background-position: 10px;
+
+}
+
+label{
+	display: block;
+	cursor: pointer;
+	
+}
+input{
+	width: 15em;
+}
+
+input.email{
+	background-image: url(../imagens/icone-usuario.png);
+
+}
+
+input.senha{
+	background-image: url(../imagens/icone-cadeado.png);
+}
+
+input.submit{
+	color: #000000;
+	background-color: #FF0000;
+	border: 2px solid #000000;
+	padding: 5px 20px;
+	height: 30px;
+	width: 30%;
+	margin-top: 15px;
+
+}
+input.submit:hover{
+color: #fff;
+background-color:#FF6347;
+}
+
+a{
+color: #000000;
+
+}
+  a:hover {
+	color: #fff;
+}
+
