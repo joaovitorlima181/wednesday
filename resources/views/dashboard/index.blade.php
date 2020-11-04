@@ -10,6 +10,7 @@ Dashboard
 
 <div class="jumbotron">
     <h2>A receber</h2>
+
     <ul class="list-group">
         <a href="/debts/create" class="btn btn-dark mb-2">Adicionar</a>
         @foreach ($debtsToReceive as $debtToReceive)
@@ -18,6 +19,12 @@ Dashboard
             <span id='debtDate-{{$debtToReceive->id}}'>{{ date('d/m/Y', strtotime($debtToReceive->date)) }}</span>
             <span id="debtValue-{{$debtToReceive->id}}">Total: R${{ $debtToReceive->value }}</span>
 
+            @foreach ($debtsToReceive->name as $userName)
+            <div class="form-check form-check-inline" required>
+                <input class="form-check-input" type="checkbox" name="debtUsers[]" value="{{ $userName }}">
+                <label class="form-check-label"> {{ $userName }} </label>
+            </div>
+            @endforeach
 
             <div class="input-group w-50" hidden id="input-debt-title-{{ $debtToReceive->id }}">
                 <input type="text" class="form-control" value="{{ $debtToReceive->title }}">
@@ -63,7 +70,7 @@ Dashboard
                 </form>
             </span>
         </li>
- 
+
         @endforeach
     </ul>
 </div>
@@ -73,9 +80,11 @@ Dashboard
     <ul class="list-group">
         @foreach ($debtsToPay as $debtToPay)
         <li class="list-group-item d-flex justify-content-between align-items-center">
+
             <span id="debtTitle-{{ $debtToPay->id }}"><span class="font-weight-bold">{{$debtToPay->name}}:</span> {{ $debtToPay->title }}</span>
             <span>{{ date('d/m/Y', strtotime($debtToPay->date)) }}</span>
             <span>R${{$debtToPay->value}}</span>
+
         </li>
         @endforeach
     </ul>
@@ -132,7 +141,7 @@ Dashboard
         const debtValue = document.querySelector(`#input-debt-value-${debtId} > input`).value;
         formData.append('value', debtValue);
 
-        const url = `/debts/edit/${debtId}`; 
+        const url = `/debts/edit/${debtId}`;
         fetch(url, {
             body: formData,
             method: 'POST'

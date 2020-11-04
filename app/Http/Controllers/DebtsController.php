@@ -28,14 +28,14 @@ class DebtsController extends Controller
         $amountDebtors = sizeof($debtsUsersId);
 
         DB::beginTransaction();
-       
+
             $debt = DebtToReceive::create([
                 'title' => $request->debtTitle,
                 'date' => $request->debtDate,
                 'value'=> $request->debtValue,
                 'creator_id' => $userId,
             ]);
-            
+
             for ($i=0; $i < $amountDebtors; $i++) {
                 DebtToPay::create([
                     'value' => $debt->value / $amountDebtors,
